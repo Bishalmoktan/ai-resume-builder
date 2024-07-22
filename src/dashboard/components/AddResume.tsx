@@ -13,6 +13,7 @@ import { useState } from "react";
 import GlobalApi from "@/services/GlobalApi";
 import { useUser } from "@clerk/clerk-react";
 import { v4 as uuidv4 } from 'uuid';
+import { useNavigate } from "react-router-dom";
 
 const AddResume = () => {
   const [openDialog, setOpenDialog] = useState(false);
@@ -23,6 +24,7 @@ const AddResume = () => {
   };
 
   const {user} = useUser();
+  const navigate = useNavigate();
 
   const onCreate = async () => {
     setLoading(true);
@@ -36,8 +38,10 @@ const AddResume = () => {
         }
     }
    try {
-       const res = await GlobalApi.createNewResume(data)
-        console.log(res);
+      const res =  await GlobalApi.createNewResume(data);
+      const {attributes} = res.data.data;
+       navigate(`/dashboard/resume/${attributes.resumeId}/edit`);
+
 
    } catch (error) {
         console.log(error);
@@ -52,7 +56,7 @@ const AddResume = () => {
     <div>
       <div
         onClick={() => setOpenDialog(true)}
-        className="py-20 p-14 bg-secondary w-max rounded-md cursor-pointer hover:shadow-md hover:scale-105 transition-all"
+        className="px-20 h-[280px] flex items-center justify-center bg-secondary w-max rounded-md cursor-pointer hover:shadow-md hover:scale-105 transition-all"
       >
         <PlusSquare />
       </div>
