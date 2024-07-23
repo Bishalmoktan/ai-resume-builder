@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ICreateResume } from "@/types/types";
 import axios from "axios";
 
@@ -17,7 +18,11 @@ const createNewResume = (data: { data: ICreateResume }) =>
 
 const getUserResumes = (userEmail: string) => axiosClient.get(`/resumes?filters[userEmail][$eq]=${userEmail}`);
 
+
+const updateUserResume = (id : any, data: any) => axiosClient.put('/resumes/'+id, data);
+
 export default {
   createNewResume,
-  getUserResumes
+  getUserResumes,
+  updateUserResume
 };

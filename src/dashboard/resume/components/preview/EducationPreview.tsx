@@ -4,7 +4,7 @@ const EducationPreview = () => {
     const { resumeInfo } = useResumeInfo();
   return (
     <div className='my-6'>
-    <h2 className='text-center font-bold text-sm mb-2'
+    <h2 className='font-bold mb-2'
     style={{
         color:resumeInfo?.themeColor
     }}

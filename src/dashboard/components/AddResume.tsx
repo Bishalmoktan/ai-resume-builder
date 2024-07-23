@@ -78,7 +78,7 @@ const AddResume = () => {
             />
           </div>
           <DialogFooter>
-            <Button onClick={onCreate} disabled={loading} type="submit">{loading ? <Loader2 /> : 'Create'}</Button>
+            <Button onClick={onCreate} disabled={loading} type="submit">{loading ? <Loader2 className="animate-spin" /> : 'Create'}</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>

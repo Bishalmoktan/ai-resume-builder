@@ -7,7 +7,6 @@ import { useEffect, useState } from "react"
 
 const EditResume = () => {
   const [resumeInfo, setResumeInfo] = useState<UserProfile | null>(null);
-
   useEffect(() => {
     setResumeInfo(dummy);
   }, [])
@@ -17,7 +16,7 @@ const EditResume = () => {
       setResumeInfo
     }}>
     <div
-    className="grid grid-cols-1 md:grid-cols-2 p-10"
+    className="grid grid-cols-1 md:grid-cols-2 gap-4 p-10"
     >
       <FormSection />
 

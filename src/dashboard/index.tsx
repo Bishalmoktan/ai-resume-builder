@@ -14,7 +14,6 @@ const DashboardPage = () => {
       const res = await GlobalApi.getUserResumes(
         user?.primaryEmailAddress?.emailAddress || ""
       );
-      console.log(user?.primaryEmailAddress?.emailAddress);
       setResumes(res.data.data);
     };
     if (user && isLoaded) {
@@ -34,7 +33,7 @@ const DashboardPage = () => {
           resumes.map((resume: any) => {
             return (
               <ResumeCard
-                resume={resume.attributes}
+                resume={resume}
                 key={resume.attributes.resumeId}
               />
             );
