@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 import { useResumeInfo } from "@/context/resumeInfoContext";
 import GlobalApi from "@/services/GlobalApi";
 import { LoaderCircle } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "sonner";
 
@@ -24,7 +24,6 @@ interface PersonalDetailProps {
 const PersonalDetail = ( {setEnableNext} : PersonalDetailProps) => {
     const [loading, setLoading] = useState(false);
     const { resumeInfo, setResumeInfo } = useResumeInfo();
-
     const { resumeId } = useParams();
     
     const [formData, setFormData] = useState<FormData>({
@@ -35,6 +34,17 @@ const PersonalDetail = ( {setEnableNext} : PersonalDetailProps) => {
         linkedin: resumeInfo?.linkedin || '',
         github: resumeInfo?.github || ''
     });
+
+    useEffect(() => {
+        setFormData({
+            firstName: resumeInfo?.firstName || '',
+            lastName: resumeInfo?.lastName || '',
+            jobTitle: resumeInfo?.jobTitle || '',
+            email: resumeInfo?.email || '',
+            linkedin: resumeInfo?.linkedin || '',
+            github: resumeInfo?.github || ''
+        })
+    }, [resumeInfo])
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setEnableNext(false);
@@ -70,7 +80,6 @@ const PersonalDetail = ( {setEnableNext} : PersonalDetailProps) => {
         }
 
 
-        setLoading(false);
     }
 
     return (

@@ -38,8 +38,8 @@ const ExperiencePreview = () => {
           </h2>
 
           <div
-            className="text-xs my-2"
-            dangerouslySetInnerHTML={{ __html: experience?.workSummery }}
+            className="text-xs my-2 rsw-ce"
+            dangerouslySetInnerHTML={{ __html: experience?.workSummary }}
           />
         </div>
       ))}

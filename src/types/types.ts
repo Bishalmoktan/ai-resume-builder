@@ -5,8 +5,8 @@ export interface ICreateResume {
     title: string
 }
 
-interface Experience {
-    id: number;
+export interface Experience {
+    experience_id: string;
     title: string;
     companyName: string;
     city: string;
@@ -14,10 +14,10 @@ interface Experience {
     startDate: string;
     endDate: string;
     currentlyWorking: boolean;
-    workSummery: string;
+    workSummary: string;
   }
   
-  interface Education {
+  export interface Education {
     id: number;
     universityName: string;
     startDate: string;
@@ -27,7 +27,7 @@ interface Experience {
     description: string;
   }
   
-  interface Skill {
+  export interface Skill {
     id: number;
     name: string;
     rating: number;

@@ -2,10 +2,12 @@ import { Button } from "@/components/ui/button"
 import { ArrowLeft, ArrowRight, LayoutGrid } from "lucide-react"
 import { useState } from "react";
 import PersonalDetail from "./form/PersonalDetail";
+import Summary from "./form/Summary";
+import Experience from "./form/Experience";
 
 const FormSection = () => {
   const [activeIndex, setActiveIndex] = useState(1);
-  const [enableNext, setEnableNext] = useState<boolean>(false);
+  const [enableNext, setEnableNext] = useState<boolean>(true);
   
   return (
     <section className="space-y-4">
@@ -23,6 +25,8 @@ const FormSection = () => {
 
       <div>
       { activeIndex == 1 && <PersonalDetail setEnableNext={setEnableNext} />}
+      { activeIndex == 2 && <Summary setEnableNext={setEnableNext} />}
+      { activeIndex == 3 && <Experience setEnableNext={setEnableNext} />}
       </div>
     </section>
   )

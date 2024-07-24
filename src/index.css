@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+.rsw-ce ul {
+  list-style: disc;
+  list-style-position: inside;
+}
+
+.rsw-ce ol {
+  list-style: decimal;
+  list-style-position: inside;
+}
+
+
 @layer base {
   :root {
     --background: 0 0% 100%;
